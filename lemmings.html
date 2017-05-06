@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Kavoon" rel="stylesheet">
+		<title>Do you know lemmings ?</title>
+	</head>
+	<body>
+		<header>	
+			<div class="progress clearfix">
+				<img src="img/start.gif" alt="start" class="start">
+				<div class="container clearfix">
+					<div class="lemming-progress clearfix">
+						<img src="img/lemming_gif.gif" alt="lemming" class="lemming">
+					</div>
+				</div>	
+				<img src="img/doorGif.gif" alt="door" class="door">
+			</div>
+		</header>
+		<section class="intro clearfix">
+			<h1><span class="light">DO</span><br/>YOU<br/> KNOW<br/> <span class="bold-effect">LEMMINGS </span><span class="bigger">?</span></h1>
+			<div class="youpi">
+				<p>Youpi !</p>
+				<p>Youpi !</p>
+			</div>
+			<img src="img/stop.png" alt="stop" class="lemming-stop">
+		</section>
+		<section class="history">
+			<p>1991</p>
+			<ul>
+				<li>First release</li>
+				<li>Originally developed for the Amiga, Atari ST and PC</li>
+			</ul>
+		</section>
+		<section class="goal clearfix">
+			<img src="img/lemming.png" alt="lemming" class="lemming2">
+			<div class="goal-description">
+				<h2>What is the goal ?</h2>
+				<p>To complete the level, the player must guide a certain percentage of the lemmings from the entrance to the exit <span>with specific skills that can be assigned to them</span> (“Climbers”, “Bombers”, “Diggers”...). <span>Of course, the number of uses of each skill varies from level to level !</span></p>
+			</div>
+		</section>
+		<section class="gameplay">
+			<div class="video">
+				<iframe width="600" height="400" src="https://www.youtube.com/embed/JJ9CS0KUZvY">
+				</iframe>
+			</div>
+		</section>
+		<footer>
+			Marie CHARLES 2017 "Do you know lemmings ?"
+		</footer>
+		
+		<script>
+			var progress = document.querySelector('.progress');
+			var lemming = document.querySelector('.lemming-progress');
+
+			function progressLemming() {
+
+				var totalHeightDoc = document.body.scrollHeight - document.body.scrollTop;
+
+    			var percentDoc = Math.max(0, Math.min (window.scrollY / totalHeightDoc, 1) ) * 100;
+    			
+    			lemming.style.width = percentDoc + '%';
+
+    			console.log(percentDoc);
+
+			}
+
+			window.addEventListener('scroll', function () {
+
+				progress.style.marginTop = document.body.scrollTop + 'px';
+    				
+    			progressLemming();
+    			
+			});
+		</script>
+	</body>
+</html>
